@@ -1,0 +1,108 @@
+{
+  "usesTypeScript": false,
+  "usesStyledComponents": true,
+  "usesCssModule": true,
+  "cssPreprocessor": "css",
+  "testLibrary": "test",
+  "component": {
+    "default": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "function": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false,
+      "widthIndex": false,
+      "customTemplates": {
+        "component": "templates/function/TemplateName.jsx",
+        "style": "templates/TemplateName.module.css",
+        "styled": "templates/TemplateName.styled.jsx",
+        "test": "templates/TemplateName.test.jsx",
+        "index": "templates/TemplateName.index.jsx"
+      }
+    },
+    "class": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false,
+      "widthIndex": false,
+      "customTemplates": {
+        "component": "templates/class/TemplateName.jsx",
+        "style": "templates/TemplateName.module.css",
+        "styled": "templates/TemplateName.styled.jsx",
+        "test": "templates/TemplateName.test.jsx",
+        "index": "templates/TemplateName.index.jsx"
+      }
+    },
+    "module": {
+      "path": "src/modules",
+      "withStyle": false,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false,
+      "widthIndex": true,
+      "customTemplates": {
+        "component": "templates/class/TemplateName.jsx",
+        "test": "templates/TemplateName.test.jsx",
+        "index": "templates/TemplateName.index.jsx"
+      }
+    },
+    "services": {
+      "path": "src/services",
+      "withStyle": false,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false,
+      "widthIndex": true,
+      "customTemplates": {
+        "component": "templates/class/TemplateName.jsx",
+        "test": "templates/TemplateName.test.jsx",
+        "index": "templates/TemplateName.index.jsx"
+      }
+    },
+    "pages": {
+      "path": "src/views",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false,
+      "widthIndex": false,
+      "customTemplates": {
+        "component": "templates/views/TemplateName.jsx",
+        "style": "templates/TemplateName.module.css",
+        "styled": "templates/TemplateName.styled.jsx",
+        "test": "templates/TemplateName.test.jsx"
+      }
+    },
+    "navbar": {
+      "path": "src/views",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false,
+      "widthIndex": false,
+      "customTemplates": {
+        "component": "templates/Components/NavBar/TemplateName.jsx"
+      }
+    },
+    "data": {
+      "path": "src/views",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false,
+      "widthIndex": false,
+      "customTemplates": {
+        "component": "templates/Components/dataClass/TemplateName.jsx"
+      }
+    }
+  }
+}

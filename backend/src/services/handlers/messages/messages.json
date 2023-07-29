@@ -1,0 +1,46 @@
+{
+    "success": {
+        "create": {
+            "status": 201,
+            "msg": "created"
+        },
+        "empty": {
+            "status": 204,
+            "msg": "no items stored"
+        },
+        "find": {
+            "status": 200,
+            "msg": "found"
+        },
+        "update": {
+            "status": 200,
+            "msg": "updated"
+        },
+        "remove": {
+            "status": 200,
+            "msg": "removed"
+        }
+    },
+    "error": {
+        "create": {
+            "status": 400,
+            "msg": "was previously created"
+        },
+        "find": {
+            "status": 404,
+            "msg": "not found"
+        },
+        "remove": {
+            "status": 400,
+            "msg": "cannot removed"
+        },
+        "server": {
+            "status": 500,
+            "msg": "Internal server error"
+        }
+    },
+    "token": {
+        "noValid": "No valid token",
+        "refreshed": "Refreshed tokens"
+    }
+}

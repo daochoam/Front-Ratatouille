@@ -1,0 +1,35 @@
+{
+    "patterns": {
+        "email": "^((?!^[._-])(?![-_.]{2,})[a-zñ0-9._-]){5,29}[a-zñ0-9]+@(([\\w-]+\\.)+[\\w-]{2,4})$",
+        "password": "^[A-Za-z!-/:-@\\[-`\\{-~Ññ¿¡°\\d]{8,32}$"
+    },
+    "email": {
+        "symbol": "@",
+        "userName": "^((?!^[._-])(?![-_.]{2,})[a-zñ0-9._-]){5,29}[a-zñ0-9](?=@)",
+        "domain": "(?<=@)(([\\w-]+\\.)+[\\w-]{2,4})$",
+        "specialCharacters": "([!-,\/:-@\\[-\\^`\\{-~¿¡°])(?=@)",
+        "spaces": "\\s+",
+        "initSCharacter": "^([!-/:-@\\[-`\\{-~¿¡°])",
+        "multiSCharacter": "[_.-]{2,}",
+        "capitaLetter": "[A-ZÑ]",
+        "charArroba": "([ -/:-@\\[-`\\{-~¿¡°])(?=@)",
+        "acentCharacters": "[À-ÆÈ-ÏÒ-ÖÙ-Ýà-æè-ïò-öù-ýÿ]"
+    },
+    "password": {
+        "spaces": "\\s+",
+        "acentCharacters": "[À-ÆÈ-ÏÒ-ÖÙ-Ýà-æè-ïò-öù-ýÿ]",
+        "capitaLetter": "[A-ZÑ]",
+        "lowercaseLetter": "[a-zñ]",
+        "specialCharacters": "[!-/:-@\\[-`\\{-~¿¡°]",
+        "numbers": "\\d"
+    },
+    "recipe": {
+        "id": "^\\d$",
+        "name": {
+            "specialCharacters": "[!-/:-@\\[-`\\{-~¿¡°]",
+            "numbers": "\\d",
+            "multiSpace": "[\\s]{2,}"
+        }
+    },
+    "diet": {}
+}

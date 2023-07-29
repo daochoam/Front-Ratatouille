@@ -1,0 +1,9 @@
+.Cards {
+    display: grid;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 5px;
+    padding: 1.5%;
+}
