@@ -18,7 +18,7 @@ const handlerError = async (msgKeys, nameModel = '', res, data = null) => {
         return res.status(status).json({ message: message })
     }
     catch (error) {
-        return res.status(400).json({ error: error })
+        return res.status(400).json({ error: error.message })
     }
 
 }

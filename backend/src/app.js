@@ -9,7 +9,10 @@ dotenv.config();
 global.app = express()
 global.config = config
 
-app.use(express.json())
+// express.json ==> Handle JSON data on incoming requests with a maximum limit of data.
+// express.urlencoded ==> Express middleware for parsing and converting data encoded in application/x-www-form-urlencoded format into a JavaScript object, (such as data submitted via HTML forms)
+const limitData = 50
+app.use(express.json({}))
 app.use(express.urlencoded({ extended: true }))
 
 app.all('*', function (request, response, next) {

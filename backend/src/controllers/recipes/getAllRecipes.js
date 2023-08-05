@@ -1,23 +1,30 @@
-import axios from 'axios'
-import path from 'path';
-import { handlerError, handlerRecipe } from '../../services/index.js'
-import config from '../../config/config.js'
 import db from '../../db.js';
+import { handlerError, handlerSuccess, handlerObjToArray, handlerRecipes, Recipe } from '../../services/index.js';
+
 
 const getAllRecipes = async (req, res) => {
-    // try {
-    //     const myRecipes = await db.Recipes.findAll()
-    //     const apiRecipe = await axios
-    //         .get(path.join(config.URL_SPOONACULAR, `complexSearch${config.API_KEY}&addRecipeInformation=true`))
 
+    try {
+        const recipeDataBase = await db.Recipe.findAll({
+            include: {
+                model: db.Diet,
+                as: 'diets',
+                through: { attributes: [] }, // Evita traer atributos de la tabla intermedia
+            }
+        });
+        // Convert the diets:[{name:value}, {name:value}] to diets:[value,value]
+        const recipeDB = handlerObjToArray(recipeDataBase, 'diets', 'name')
 
-    // }
-    // catch (error) {
+        const recipesAPI = await handlerRecipes()
+            .then((data) => {
+                return data.map(recipe => { return Recipe.getRecipe(recipe) })
+            })
+        handlerSuccess('find', 'Recipe', res, [...recipeDB, ...recipesAPI])
 
-    // }
-    return await axios
-        .get(path.join(config.URL_SPOONACULAR, `complexSearch${config.API_KEY}&addRecipeInformation=true`))
-        .then(({ data }) => { return data })
+    } catch (error) {
+        handlerError('find', 'Recipe', res)
+    }
+
 }
 
 export default getAllRecipes

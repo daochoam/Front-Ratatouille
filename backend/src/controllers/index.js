@@ -1,7 +1,11 @@
 //? Recipe Controllers
 export {
+    createRecipe,
     getRecipeById,
-    getAllRecipes
+    getAllRecipes,
+    getRecipesByName,
+    removeRecipeById,
+    updateRecipeById
 } from './recipes/index.js'
 
 //? Diet Controllers

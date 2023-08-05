@@ -1,28 +1,28 @@
 export {
-    getRecipeById,
-    getRecipeDetail,
     createRecipe,
-    removeRecipe,
-    ADD_NEW_RECIPE,
-    CLEAN_RECIPE_DETAIL,
+    getRecipes,
+    getRecipesByName,
+    getRecipeDetail,
     CREATE_RECIPE,
-    GET_RECIPE_BY_ID,
+    GET_RECIPES,
     GET_RECIPE_DETAIL,
-    REMOVE_RECIPE,
+    GET_RECIPES_BY_NAME,
 } from './recipe'
 
+
 export {
-    createDiet,
     getAllDiets,
-    getDietById,
-    removeDiet,
-    ADD_NEW_DIET,
-    CREATE_DIET,
     GET_ALL_DIETS,
-    GET_DIET_BY_ID,
-    REMOVE_DIET,
 } from './diets'
 
+export {
+    filterByScore,
+    filterByDiets,
+    filterByOrder,
+    FILTER_BY_DIETS,
+    FILTER_BY_ORDER,
+    FILTER_BY_SCORE
+} from './order'
 
 export {
     addFavorite,

@@ -5,7 +5,12 @@ export default (sequelize, DataTypes) => {
     class Diet extends Model {
         static associate(models) {
             // define association here
-            Diet.belongsToMany(models.Recipe, { through: "RecipeDiet" });
+            this.belongsToMany(models.Recipe, {
+                through: 'Recipe_Diet',
+                as: 'diets', // Nombre de la tabla intermedia
+                foreignKey: 'dietId',
+                onDelete: 'CASCADE'
+            });
         }
     }
     Diet.init(

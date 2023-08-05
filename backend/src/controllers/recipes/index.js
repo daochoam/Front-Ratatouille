@@ -1,6 +1,6 @@
 export { default as createRecipe } from './createRecipe.js'
 export { default as getAllRecipes } from './getAllRecipes.js'
 export { default as getRecipeById } from './getRecipeById.js'
-export { default as getRecipeByName } from './getRecipeByName.js'
+export { default as getRecipesByName } from './getRecipesByName.js'
 export { default as removeRecipeById } from './removeRecipeById.js'
 export { default as updateRecipeById } from './updateRecipeById.js'

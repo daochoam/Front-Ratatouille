@@ -6,7 +6,7 @@ const removeRecipeById = async (req, res) => {
     const { idRecipe } = req.params
 
     try {
-        const recipe = await db.Recipe.findByPk({ idRecipe })
+        const recipe = await db.Recipe.findByPk(idRecipe)
         if (recipe) {
             await recipe.destroy();
             handlerSuccess('remove', 'Recipe', res)

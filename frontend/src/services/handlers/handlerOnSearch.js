@@ -1,11 +1,11 @@
-import { reqRecipeById } from "../reqRecipe"
+import { getRecipeById } from "../requires"
 
 const handlerOnSearch = (id, state, setState) => {
-  if (state.some((char) => char.Id === parseInt(id))) return alert("The character was previously added")
+  if (state.some((char) => char.id === parseInt(id))) return alert("The recipe was previously added")
   // Todo
-  reqRecipeById(id)
+  getRecipeById(id)
     .then(({ data, message }) => {
-      data ? setState((oldRecipes) => [...oldRecipes, data]) : alert(message)
+      data ? setState((oldsetState) => [...oldsetState, data]) : alert(message)
     })
 }
 

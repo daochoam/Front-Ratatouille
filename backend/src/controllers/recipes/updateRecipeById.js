@@ -6,7 +6,7 @@ const updateRecipeById = async (req, res) => {
     const { name, image, summaryOfDish, healthScore, stepByStep, diets } = req.body
 
     try {
-        const recipe = await db.Recipe.findByPk({ id: idRecipe })
+        const recipe = await db.Recipe.findByPk(idRecipe)
         if (recipe) {
             if (diets.length > 0) {
                 diets.forEach(async (idDiet) => {

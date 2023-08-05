@@ -1,1 +1,133 @@
-.FilterBar {}
+.FilterBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin: 1%;
+    padding: 0.2%;
+    color: burlywood;
+
+}
+
+.Selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: flex-start;
+    margin: 2%;
+}
+
+.SelectOrder {
+    font-size: 25px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid white;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+}
+
+.SelectOrder option {
+    background: #ffffff;
+    color: rgb(133, 104, 65);
+    transition: background 0.3s;
+}
+
+/* Estilos para las opciones al pasar el mouse sobre ellas */
+.SelectOrder option:hover {
+    background: rgb(145, 110, 63);
+    color: #ffffff;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.checkbox input {
+    margin-right: 5px;
+}
+
+.custom-checkbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    /* Espacio para el cuadrito */
+    margin-right: 10px;
+    /* Espacio entre los checkboxes */
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+
+/* Estilo para el cuadrito del checkbox */
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Estilo para el marcado del checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    /* Altura del cuadrito */
+    width: 24px;
+    /* Ancho del cuadrito */
+    border-radius: 50%;
+    /* Redondear el cuadrito */
+    border: 2px solid #333;
+    /* Borde del cuadrito */
+}
+
+.CheckDiet {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Checkbox {
+    flex: 0 0 calc(33.33% - 10px);
+    /* Cada checkbox ocupará un tercio del ancho con 10px de margen entre ellos */
+    margin: 5px;
+    display: inline-block;
+    position: relative;
+    padding-left: 5px;
+    /* Espacio para el cuadrito */
+    margin-right: 5px;
+    /* Espacio entre los checkboxes */
+    cursor: pointer;
+    font-size: 25px;
+    /* Espacio entre los checkboxes */
+}
+
+/* Estilo para el cuadrito del checkbox */
+.Checkbox input {
+    /* Estilos personalizados para el checkbox, si los deseas */
+}
+
+/* Estilo para el texto al lado del checkbox */
+.Checkbox label {
+    /* Estilos personalizados para el texto, si los deseas */
+}

@@ -1,1 +1,81 @@
-.NavBar {}
+.NavBar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    height: 70px;
+    z-index: 1;
+
+    font-size: 35px;
+    color: white;
+
+    background-image: url(/src/assets/images/header.jpg) !important;
+    background-size: contain;
+    background-position: center;
+    transition: 0.5s ease-in-out;
+}
+
+.NavLogo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70px;
+    min-height: 70px;
+    padding: 0px 1.5rem;
+    align-content: center;
+}
+
+.NavIcon {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 10;
+    transition: 0.5s ease-in-out all;
+}
+
+.NavIcon:hover {
+    transform: scale(1.1);
+}
+
+.NavDir {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-size: larger;
+    color: blue;
+    padding: 0.3%;
+    align-content: stretch;
+    width: 600px;
+}
+
+a,
+Link,
+NavLink:-webkit-any-link {
+    text-decoration: none;
+    color: rgb(202, 199, 199);
+    cursor: pointer;
+    padding: 2%;
+}
+
+.NavLinkActive {
+    color: #333;
+    transition: 0.5s ease-in-out;
+}
+
+.NavLinkActive:hover {
+    color: rgb(243, 238, 238);
+    transform: scale(1.06);
+    border-bottom: 2px solid rgb(243, 238, 238);
+}

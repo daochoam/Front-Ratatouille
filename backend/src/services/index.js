@@ -1,9 +1,18 @@
 export { default as Recipe } from './protoTypes/Recipe.js'
 
-//? Recipe Controllers
+//? handlers
 export {
+    handlerAllDiets,
     handlerError,
-    handlerSuccess,
-    handlerRecipe,
-    handlerAllDiets
+    handlerObjToArray,
+    handlerRecipes,
+    handlerSuccess
 } from './handlers/index.js'
+
+//? validations
+export {
+    valRecipe,
+    valUser,
+    validateUser,
+    validateRecipe,
+} from './validations/index.js'

@@ -10,8 +10,8 @@ config.listablanca = [
 ]
 config.PORT = process.env.PORT || 3001
 config.URL_SPOONACULAR = 'https://api.spoonacular.com/recipes'
-config.URL_INGREDIENTS = 'https://spoonacular.com/cdn/ingredients_100x100'
-config.API_KEY = `?apiKey=${process.env.API_KEY}`
+config.URL_IMAGE_INGREDIENTS = 'https://spoonacular.com/cdn/ingredients_100x100'
+config.API_KEY = `?apiKey=${process.env.SPOONACULAR_API_KEY}`
 
 
 export default config

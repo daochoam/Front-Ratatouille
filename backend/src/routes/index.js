@@ -4,5 +4,6 @@ import favorites from './favorites.js'
 
 export default [
     dietRouter,
-    recipeRouter
+    recipeRouter,
+    favorites
 ];

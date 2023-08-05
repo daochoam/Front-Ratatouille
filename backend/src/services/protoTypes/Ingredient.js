@@ -6,7 +6,7 @@ class Ingredient {
     constructor(props) {
         this.id = props.id
         this.name = props.name
-        this.image = props.image ? path.join(config.URL_INGREDIENTS, props.image) : ''
+        this.image = props.image ? path.join(config.URL_IMAGE_INGREDIENTS, props.image) : ''
         this.amount = props.amount
         this.measures = props.measures
     }

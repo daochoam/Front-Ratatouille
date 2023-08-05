@@ -1,63 +1,65 @@
 import {
-    ADD_FAVORITE,
-    ADD_NEW_RECIPE,
-    CLEAN_RECIPE_DETAIL,
     CREATE_RECIPE,
-    GET_RECIPE_BY_ID,
+    GET_RECIPES,
     GET_RECIPE_DETAIL,
-    REMOVE_FAVORITE,
-    REMOVE_RECIPE,
-
+    GET_RECIPES_BY_NAME,
+    GET_ALL_DIETS,
+    FILTER_BY_DIETS,
+    FILTER_BY_ORDER,
+    FILTER_BY_SCORE
 } from './actions/index'
 
 const initialState = {
     recipes: [],
-    recipesDetail: {},
-    favorites: [],
+    typesDiets: [],
+    filterScore: 0,
+    filterDiets: [],
+    filterOrder: false,
 };
 
 function rootReducer(state = initialState, { type, payload }) {
     switch (type) {
-        case ADD_FAVORITE:
-            return {
-                ...state,
-                favorites: [...state.favorites, payload],
-            };
-        case ADD_NEW_RECIPE:
-            return {
-                ...state,
-                recipes: [...state.recipes, payload]
-            }
         case CREATE_RECIPE:
             return {
                 ...state,
-                recipeDetail: []
+                recipes: [...state.recipes, payload]
             };
-        case CLEAN_RECIPE_DETAIL:
+        case GET_ALL_DIETS:
             return {
                 ...state,
-                recipeDetail: []
+                typesDiets: payload
             };
-        case REMOVE_RECIPE:
+        case GET_RECIPES:
             return {
                 ...state,
-                recipes: state.recipes.filter((recipe) => recipe.Id !== payload)
-            };
-        case GET_RECIPE_BY_ID:
-            return {
-                ...state,
-                recipes: [...state.recipes, payload],
+                recipes: payload
             };
         case GET_RECIPE_DETAIL:
             return {
                 ...state,
-                recipeDetail: payload
+                recipes: [...state.recipes, payload]
             };
-        case REMOVE_FAVORITE:
+        case GET_RECIPES_BY_NAME:
             return {
                 ...state,
-                favorites: state.favorites.filter((favorite) => favorite.Id !== payload)
+                recipes: payload
             };
+        case FILTER_BY_DIETS:
+            return {
+                ...state,
+                filterDiets: payload
+            };
+        case FILTER_BY_ORDER:
+            return {
+                ...state,
+                filterOrder: payload
+            };
+        case FILTER_BY_SCORE:
+            return {
+                ...state,
+                filterScore: payload
+            };
+
         default:
             return { ...state }
     }

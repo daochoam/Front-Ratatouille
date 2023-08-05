@@ -4,15 +4,20 @@ import { Model } from "sequelize";
 export default (sequelize, DataTypes) => {
     class User extends Model {
         static associate(models) { // define association here
-            User.belongsToMany(models.Recipe, { through: "Favorites" });
+            this.belongsToMany(models.Recipe, {
+                through: "User_Recipes",
+                as: 'favorites',
+                foreignKey: "userId",
+                onDelete: 'CASCADE'
+            }
+            );
         }
     }
     User.init(
         {
             id: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                autoIncrement: true,
+                type: DataTypes.UUID,
+                defaultValue: DataTypes.UUIDV4,
                 primaryKey: true,
             },
             full_name: DataTypes.STRING,

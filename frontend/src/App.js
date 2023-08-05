@@ -1,33 +1,38 @@
 import './App.css';
 import { Route, Routes, useLocation } from 'react-router-dom'
 import About from './components/About/About'
-import Cards from './components/Cards/Cards.jsx';
 import Detail from './components/Detail/Detail'
-import Favorites from './components/Favorites/Favorites';
-import Form from './components/Form/Form.jsx';
+import FormRecipe from './components/FormRecipe/FormRecipe.jsx';
 import NavBar from './components/NavBar/NavBar';
-import { useState } from 'react';
-import { handlerOnClose, handlerOnSearch } from "./services"
+import Landing from './components/Landing/Landing'
+
+import formImage from './assets/images/form.jpg';
+import homeImage from './assets/images/mesa.jpg';
+import Home from './components/Home/Home';
 
 function App() {
   const { pathname } = useLocation();
 
-  //! HOOKS
-  const [recipes, setRecipe] = useState([])
-
-  // TODO: onSearch onClose Function
-  const onSearch = (id) => { handlerOnSearch(id, recipes, setRecipe) }
-  const onClose = (id) => { handlerOnClose(id, recipes, setRecipe) }
+  let Background = ''
+  if (pathname === '/formRecipe') {
+    Background = formImage
+  } else {
+    Background = homeImage
+  }
 
   return (
-    <div className='App'>
-      {/(\/home)$/.test(pathname) ? <NavBar onSearch={onSearch} /> : <NavBar />}
+    <div className='App'
+      style={{
+        backgroundImage: `url(${Background})`,
+        backgroundAttachment: 'fixed',
+      }}>
+      {!/(\/)$/.test(pathname) ? <NavBar /> : null}
       <Routes>
-        <Route path="/" element={<Form />} />
-        <Route path='/home' element={<Cards key={recipes.Id} Recipes={recipes} onClose={onClose} />} />
+        <Route exact path="/" element={<Landing />} />
+        <Route path="/formRecipe" element={<FormRecipe />} />
+        <Route path='/home' element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path='/detail/:detailId' element={<Detail onClose={onClose} />} />
-        <Route path='/favorites' element={<Favorites />} />
+        <Route path='/detail/:detailId' element={<Detail />} />
         {/* <Route path={"*"} element={ <Page404 />} /> */}
       </Routes>
     </div >)

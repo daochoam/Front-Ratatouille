@@ -1,13 +1,43 @@
-body {
+/* =================================================================
+    * CONFIGURATION *
+==================================================================*/
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* =================================================================
+    * VARIABLES *
+==================================================================*/
+:root {
+  --container-width: 1000px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+p {
+  line-height: 27px;
+}
+
+img {
+  vertical-align: text-top;
+  width: 100%;
+}
+
+a,
+Link,
+NavLink:-webkit-any-link {
+  text-decoration: none;
+  color: none;
+  cursor: pointer;
 }

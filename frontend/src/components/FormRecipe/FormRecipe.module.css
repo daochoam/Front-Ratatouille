@@ -1,0 +1,134 @@
+.FormRecipe {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    min-width: 500px;
+    max-width: 1400px;
+    max-height: 800px;
+    justify-content: space-around;
+    align-items: flex-start;
+    z-index: 1;
+    color: #fff;
+    border-radius: 15px;
+    margin: 1%;
+    padding: 2.%;
+    animation: FormRecipe_FormRecipe_fly__oL-zZ__RbRol 0.8s;
+    box-shadow: 1px 1px 1px 1px #fff;
+    flex-wrap: nowrap;
+    align-content: stretch;
+}
+
+.InfoRecipe {
+    display: flex;
+    flex-direction: column;
+    min-width: 40%;
+    height: 100%;
+    margin: 2%;
+
+}
+
+.InfoFiles {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    align-content: stretch;
+    flex-wrap: wrap;
+
+}
+
+.InfoSteps {
+    display: flex;
+    flex-direction: column;
+    min-width: 45%;
+    height: 90%;
+    margin: 2%;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.502);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* Cambia "blue" al color que desees */
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.502);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.LabelInputs {
+    font-size: 30px;
+    margin: 5px;
+}
+
+.InputRecipe {
+    width: 100%;
+    border: none;
+    background: none;
+    color: #ffffff;
+    padding: 5px 5px 5px 5px;
+    transition: .5s ease-in-out all;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.InputRecipe:focus {
+    outline: none;
+    transform: scale(1.03);
+}
+
+.TextAreaRecipe {
+    font-size: 20px;
+}
+
+
+.TextAreaRecipe {
+    height: 120px;
+    min-height: 50px !important;
+    max-height: 100px !important;
+    min-width: 400px !important;
+    max-width: 650px !important;
+    width: 500px;
+    border: none;
+    border-inline-end: 2px solid white;
+    border-bottom: 2px solid white;
+    font-size: 18px;
+    color: rgb(224, 220, 220);
+    background-color: transparent;
+}
+
+.TextAreaRecipe:hover {
+    color: rgb(229, 137, 16);
+    background-color: rgba(84, 78, 78, 0.66);
+}
+
+.Form .Register .Reg-btns {
+    position: relative;
+    margin: 2%;
+    padding: 2% auto;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.ErrorLabel {
+    width: 100%;
+    height: auto;
+    font-size: 25px;
+    border-color: #fff;
+    color: rgb(158, 158, 158)
+}
+
+@keyframes fly {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}

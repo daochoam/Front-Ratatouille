@@ -1,66 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import { handlerNames } from '../../services';
 import styles from './Card.module.css';
-import {Link} from 'react-router-dom'
-import { addFavorite, removeFavorite } from '../../redux/index.js';
-import { connect, useDispatch } from 'react-redux';
-import { handlerFavorite } from '../../services';
+import { Link } from 'react-router-dom'
 
-function Card({recipe, onClose,addFavorite, removeFavorite}) {
-  const dispatch = useDispatch()
-  const [isFavorite,setIsFavorite]= useState(false)
-  
-  const handlerFav = () => {
-    handlerFavorite(recipe, { state: isFavorite, setState: setIsFavorite},
-      { addFavorite: addFavorite, rmvFavorite: removeFavorite}
-    )}
-  
-  const btnClose = () => {
-    removeFavorite(recipe.Id)
-    onClose(recipe.Id)
-  }
-    
-    return (
-        <div className={styles.Card}>
-					{isFavorite ? 
-          (<button onClick={handlerFav}>❤️</button>) : 
-          (<button onClick={handlerFav}>🤍</button>)}
 
-          <button className={styles.CardBtn} 
-            onClick={btnClose}
-            title="close">X
-          </button>
-          
-          {Object.keys(recipe).map((key,index) => {
-            if(key==="image"){
-              return (
-							<img className={styles.CardImage} 
-							src={recipe[key]}
-							alt={recipe.name}
-							key={index}
-							title={recipe.name}/>
-							)
-						}
-
-            if(key!=='id'){ 
-              return ( 
-              <h3 className={styles.CardKey}  key={index}  title={recipe[key]}> 
-                {key!=='name'?`${key}: `:null}
-                <p className={styles.CardValue}>
-                {key==='name'?<Link to={`/detail/${recipe.id}`} className={styles.CardLink}>{recipe.name}</Link>:recipe[key]}
-                </p>
-              </h3> )}
-            else return null
-            })}
-         </div>
-       )
-  };
-
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      addFavorite: (recipe) => {dispatch(addFavorite(recipe))},
-      removeFavorite: (id) => {dispatch(removeFavorite(id))}
-    }
+const titleRecipe = {
+  id: "", name: "", image: " ", healthScore: "Health Score: ", diets: "Diets: "
 }
 
-export default connect(null, mapDispatchToProps)(Card);
+function Card({ recipe }) {
+  return (
+    <div className={styles.Card}>
+      <div className={styles.CardInfo}>
+        <div className={styles.Info}>
+          {Object.entries(recipe).map(([key, value], index) => {
+            if (key in titleRecipe) {
+              if (key === "image") {
+                return (
+                  <img
+                    className={styles.CardImage}
+                    src={recipe[key]}
+                    alt={recipe.name}
+                    key={index}
+                    title={recipe.name}
+                  />
+                );
+              } else if (key !== "id") {
+                return (
+                  <h3 className={styles.CardKey} key={index} title={recipe[key]}>
+                    {key !== "name" ? (key in titleRecipe ? titleRecipe[key] : null) : null}
+                    <p className={styles.CardValue}>
+                      {key === "name" ? (
+                        <Link to={`/detail/${recipe.id}`} className={styles.CardLink}>
+                          <h2>{recipe.name}</h2>
+                        </Link>
+                      ) : key === "diets" ? (
+                        recipe[key].map(diet => handlerNames(diet)).join(", ")
+                      ) : (
+                        recipe[key]
+                      )}
+                    </p>
+                  </h3>
+                );
+              }
+            }
+            return null;
+          })}
+
+        </div>
+      </div>
+    </div>
+  )
+};
+
+
+
+export default Card;
 
