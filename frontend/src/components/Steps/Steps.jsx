@@ -7,12 +7,12 @@ import {
 } from '../../services';
 import styles from './Steps.module.css';
 
-function Steps({ initSteps, onChange, errors }) {
+function Steps({ initSteps, onChangeSteps, errors }) {
   const [steps, setSteps] = useState(initSteps || [{ value: '' }]);
 
   const changeSteps = (event, index) => {
     const currentSteps = handlerChangeSteps(event, index, steps, setSteps);
-    onChange(currentSteps);
+    onChangeSteps(currentSteps);
   }
 
   const AddSteps = (index) => {
@@ -21,24 +21,23 @@ function Steps({ initSteps, onChange, errors }) {
 
   const RemoveSteps = async (index) => {
     const currentSteps = handlerRemoveSteps(index, steps, setSteps)
-    onChange(currentSteps);
+    onChangeSteps(currentSteps);
   }
 
   const ClearSteps = (index) => {
     const currentSteps = handlerClearSteps(index, steps, setSteps)
-    onChange(currentSteps);
+    onChangeSteps(currentSteps);
   };
-
 
   return (
     <div className={styles.Steps}>
-      {steps.map((step, index) => (
+      {steps.map(obj => Object.values(obj)).map((step, index) => (
         <div className={styles.BlokStep} key={index} style={{ display: 'flex', alignItems: 'start' }}>
           <div className={styles.StepStep}>
             <textarea
               className={styles.TextAreaStep}
               placeholder={`Describe step ${index + 1}...`}
-              value={step.value}
+              value={step[0]}
               maxLength={90}
               onChange={(event) => changeSteps(event, index)}
               style={{ marginRight: '10px' }}

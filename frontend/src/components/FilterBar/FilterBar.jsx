@@ -1,67 +1,98 @@
-import PropTypes from 'prop-types';
 import styles from './FilterBar.module.css';
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getAllDiets } from '../../redux/actions';
-import { handlerNames } from '../../services';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import MultiSelect from '../MultiSelect/MultiSelect';
+import { filterByDiets, filterByField, filterByName, filterByOrder, filterByOrigin } from '../../redux/actions';
 
-function FilterBar({ Diets }) {
-  const [order, setOrder] = useState('asc');
-  const [selectedField, setSelectedField] = useState('score');
-  const [checkedDiet, setCheckedDiet] = useState([]);
-  // const [recipes, setRecipe] = useState([])
 
-  const handleOrderChange = (event) => {
-    setOrder(event.target.value);
+function FilterBar({ Diets, onChangeFilter, initFilter }) {
+  const dispatch = useDispatch()
+  const [filter, setFilter] = useState(initFilter || {
+    field: 'All',
+    order: 'All',
+    origin: 'All',
+    name: '',
+    selectDiet: []
+  })
+
+  const handlerOrderChange = (event) => {
+    const { value } = event.target
+    const currentFilter = { ...filter, order: value }
+    setFilter(currentFilter);
+    onChangeFilter(currentFilter)
+    dispatch(filterByOrder(value));
   };
 
-  const handleFieldChange = (event) => {
-    setSelectedField(event.target.value);
+  const handlerFieldChange = (event) => {
+    const { value } = event.target
+    const currentFilter = { ...filter, field: value }
+    setFilter(currentFilter);
+    onChangeFilter(currentFilter)
+    dispatch(filterByField(value));
   };
 
-  const handleCheckboxChange = (event) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setCheckedDiet((prevCheckedItems) => [...prevCheckedItems, value]);
-    } else {
-      setCheckedDiet((prevCheckedItems) =>
-        prevCheckedItems.filter((item) => item !== value)
-      );
-    }
+  const handlerOriginChange = (event) => {
+    const { value } = event.target
+    const currentFilter = { ...filter, origin: value }
+    setFilter(currentFilter);
+    onChangeFilter(currentFilter)
+    dispatch(filterByOrigin(value));
+  };
+
+  const handlerDietChange = (updatedDiet) => {
+    const currentFilter = { ...filter, selectDiet: [...updatedDiet] }
+    setFilter(currentFilter);
+    onChangeFilter(currentFilter)
+    dispatch(filterByDiets(updatedDiet));
+  };
+
+  const handlerSearchName = (event) => {
+    const { value } = event.target
+    const currentFilter = { ...filter, name: value }
+    setFilter(currentFilter);
+    onChangeFilter(currentFilter)
+    dispatch(filterByName(value));
   };
 
   return (
     <div className={styles.FilterBar}>
+
+      <div className={styles.Selector}>
+        <label htmlFor="field">Field:</label>
+        <select className={styles.SelectOrder} id="field" value={filter.field} onChange={handlerFieldChange}>
+          <option value="All">All</option>
+          <option value="healthScore">Health Score</option>
+          <option value="name">Name</option>
+        </select>
+      </div>
+
       <div className={styles.Selector}>
         <label htmlFor="order">Order:</label>
-        <select className={styles.SelectOrder} id="order" value={order} onChange={handleOrderChange}>
-          <option value="" disabled selected>Select Order</option>
-          <option value="asc">Ascendente</option>
-          <option value="desc">Descendente</option>
+        <select className={styles.SelectOrder} id="order" value={filter.order} onChange={handlerOrderChange}>
+          <option value='Ascendant'>{filter.field === "healthScore" ? "0-100" : "A-Z"}</option>
+          <option value='Falling'>{filter.field === "healthScore" ? "100-0" : "Z-A"}</option>
         </select>
       </div>
 
       <div className={styles.Selector}>
-        <label htmlFor="field">Campo:</label>
-        <select className={styles.SelectOrder} id="field" value={selectedField} onChange={handleFieldChange}>
-          <option value="score">Score</option>
-          <option value="health">Health</option>
-          <option value="name">Name</option>
-          <option value="diets">Diets</option>
+        <label htmlFor="diets">Diets:</label>
+        <MultiSelect options={Diets} onChangeSelect={handlerDietChange} initSelect={filter.selectDiet} param={true} />
+      </div>
+
+      <div className={styles.Selector}>
+        <label htmlFor="order">Origin:</label>
+        <select className={styles.SelectOrder} id="origin" value={filter.origin} onChange={handlerOriginChange}>
+          <option value='All'>All</option>
+          <option value='API'>API</option>
+          <option value='DB'>Database</option>
         </select>
       </div>
 
-      <div className={styles.CheckDiet}>
-        {Diets.map(({ id, name }) => (
-          <div key={id} className={styles.Checkbox}>
-            <input
-              type="checkbox"
-              value={name}
-              checked={checkedDiet.includes(name)}
-              onChange={handleCheckboxChange}
-            /><label>{handlerNames(name)}</label>
-          </div>
-        ))}
+      <div className={styles.Selector}>
+        <label htmlFor="order">Search Name:</label>
+        <div className={styles.SearchBar}>
+          <input className={styles.searchInput} value={filter.name} onChange={handlerSearchName} type="search" />
+        </div>
       </div>
     </div>
   )

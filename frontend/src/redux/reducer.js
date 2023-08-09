@@ -5,16 +5,22 @@ import {
     GET_RECIPES_BY_NAME,
     GET_ALL_DIETS,
     FILTER_BY_DIETS,
+    FILTER_BY_FIELD,
+    FILTER_BY_NAME,
     FILTER_BY_ORDER,
-    FILTER_BY_SCORE
+    FILTER_BY_ORIGIN
 } from './actions/index'
 
 const initialState = {
     recipes: [],
     typesDiets: [],
-    filterScore: 0,
-    filterDiets: [],
-    filterOrder: false,
+    filters: {
+        field: 'All',
+        name: '',
+        order: 'All',
+        origin: 'All',
+        selectDiet: []
+    }
 };
 
 function rootReducer(state = initialState, { type, payload }) {
@@ -47,17 +53,27 @@ function rootReducer(state = initialState, { type, payload }) {
         case FILTER_BY_DIETS:
             return {
                 ...state,
-                filterDiets: payload
+                filters: { ...state.filters, selectDiet: [...payload] }
+            };
+        case FILTER_BY_FIELD:
+            return {
+                ...state,
+                filters: { ...state.filters, field: payload }
+            };
+        case FILTER_BY_NAME:
+            return {
+                ...state,
+                filters: { ...state.filters, name: payload }
             };
         case FILTER_BY_ORDER:
             return {
                 ...state,
-                filterOrder: payload
+                filters: { ...state.filters, order: payload }
             };
-        case FILTER_BY_SCORE:
+        case FILTER_BY_ORIGIN:
             return {
                 ...state,
-                filterScore: payload
+                filters: { ...state.filters, origin: payload }
             };
 
         default:

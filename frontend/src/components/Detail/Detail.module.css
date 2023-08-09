@@ -1,1 +1,197 @@
-.Detail {}
+.Detail {
+    /* display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    height: 50%;
+    margin: 0.5%;
+    padding: 15px; */
+    /* opacity: 50%;
+    background-image: url(../../assets/images/menu3.jpg) !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+
+/* .DetailInfo {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 80vh;
+    margin: 0.5%;
+    padding: 15px;
+    opacity: 50%;
+    background-image: url(../../assets/images/menu3.jpg) !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.BackImage {
+    position: relative;
+    margin: 0.5%;
+    padding: 15px;
+    opacity: 50%;
+    background-image: url(../../assets/images/BackPhoto.png) !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Image {
+    height: 50px;
+    margin: 50px;
+    border-radius: 50%;
+} */
+/* Detail.module.css */
+
+.Detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    height: 50%;
+    margin: 0.5%;
+    padding: 15px;
+    opacity: 90%;
+    margin: 1% auto;
+    background-image: url(http://localhost:3000/static/media/menu3.14364fa5b5a6539ede1d.jpg) !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.DetailInfo {
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    color: white;
+    max-height: 85vh;
+    max-width: 50vw;
+    margin: 0.5%;
+    padding: 2%;
+    background-image: url(../../assets/images/pasta.png) !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid burlywood;
+    color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: burlywood #f0f0f0;
+}
+
+
+
+
+.BackImage {
+    position: relative;
+    margin: 0.5%;
+    padding: 15px;
+    opacity: 90%
+}
+
+.Image {
+    height: 300px;
+    width: 300px;
+}
+
+
+.CardKey {
+    font-size: 25px;
+    letter-spacing: 2px;
+    line-height: 0.8;
+    margin-bottom: 5px;
+}
+
+.CardValue {
+    font-size: 25px;
+    letter-spacing: 2px;
+    line-height: 0.8;
+}
+
+.Image {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+
+.DetailSteps {
+    max-height: 85vh;
+    max-width: 40vw;
+    padding: 2%;
+    background-image: url(../../assets/images/orange.jpeg) !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid burlywood;
+    color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: burlywood #f0f0f0;
+}
+
+
+.DetailSteps ol {
+    padding-left: 20px;
+}
+
+.DetailSteps li {
+    margin-bottom: 10px;
+}
+
+.DetailSteps strong {
+    font-size: 30px;
+    letter-spacing: 2px;
+    line-height: 0.8;
+    color: chocolate;
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.52);
+}
+
+.TextStep {
+    font-size: 25px;
+    letter-spacing: 2.5px;
+    line-height: 0.8;
+
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.52);
+}
+
+.UnorderedList {
+    list-style-type: none;
+    /* Elimina la numeración */
+    padding: 0;
+    margin: 0;
+}
+
+.DetailSteps ul li {
+    margin-bottom: 10px;
+}
+
+.DetailSteps::-webkit-scrollbar {
+    width: 6px;
+    /* Ancho del scrollbar en navegadores WebKit */
+}
+
+.DetailSteps::-webkit-scrollbar-thumb {
+    background-color: burlywood;
+    /* Color de la barra de desplazamiento */
+    border-radius: 4px;
+    /* Borde redondeado de la barra */
+}
+
+.DetailSteps::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    /* Color del fondo de la barra */
+    border-radius: 4px;
+    /* Borde redondeado del fondo */
+}

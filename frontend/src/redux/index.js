@@ -5,6 +5,8 @@ export {
     getRecipeDetail,
     getAllDiets,
     filterByDiets,
-    filterByScore,
-    filterByOrder
+    filterByName,
+    filterByOrigin,
+    filterByOrder,
+    filterByField,
 } from "./actions";

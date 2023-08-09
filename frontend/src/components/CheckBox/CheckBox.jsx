@@ -9,10 +9,11 @@ import {
  * @param {*} infoCheck Selection information that renders the component 
  * @param {*} initCheck 
  * @param {*} onChange 
- * @param {*} errors 
+ * @param {*} errors
+ * @param {*} param:boolean = false   ref: false-->key; true-->value
  * @returns 
  */
-function CheckBox({ infoCheck, initCheck, onChange, errors }) {
+function CheckBox({ infoCheck, initCheck, onChangeCheck, errors, param = false }) {
   const [check, setChecked] = useState(initCheck || []);
 
 
@@ -26,7 +27,7 @@ function CheckBox({ infoCheck, initCheck, onChange, errors }) {
       currentCheck = check.filter((item) => item !== value)
       setChecked(currentCheck)
     }
-    onChange(currentCheck)
+    onChangeCheck(currentCheck)
   };
 
   return (
@@ -34,11 +35,11 @@ function CheckBox({ infoCheck, initCheck, onChange, errors }) {
     <div className={styles.CheckBox}>
       {infoCheck.map(obj => Object.values(obj)).map(value => {
         return (
-          <label className={styles.Check} key={value[0]}>
+          <label className={styles.Check} key={value[param ? 1 : 0]}>
             <input
               type="checkbox"
-              value={value[0]}
-              checked={check.includes(value[0].toString())}
+              value={value[param ? 1 : 0]}
+              checked={check.includes(value[param ? 1 : 0].toString())}
               onChange={(e) => { handleCheckboxChange(e) }}
             />
             <span className={styles.Checkmark}></span>

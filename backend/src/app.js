@@ -6,12 +6,10 @@ import { config } from './config/index.js';
 import routes from "./routes/index.js";
 
 dotenv.config();
-global.app = express()
-global.config = config
+const app = express()
 
 // express.json ==> Handle JSON data on incoming requests with a maximum limit of data.
 // express.urlencoded ==> Express middleware for parsing and converting data encoded in application/x-www-form-urlencoded format into a JavaScript object, (such as data submitted via HTML forms)
-const limitData = 50
 app.use(express.json({}))
 app.use(express.urlencoded({ extended: true }))
 
@@ -40,28 +38,4 @@ routes.forEach((route) => {
   app.use("/", route);
 });
 
-db.sequelize.sync({ force: true }).then(() => {
-  app.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
-});
-//   .then(() => {
-//   console.log(`Database synced successfully`); // eslint-disable-line no-console
-// }).
-//   catch(error => {
-//     console.error("Unable to connect to the database:", error)
-//   });
-
-// app.listen(config.PORT, () => {
-//   console.log('Server running on port ' + config.PORT)
-// })
-// db.sequelize
-//   .authenticate()
-//   .then(() => {
-//     app.listen(port, () => {
-//       console.log(`Connected to database and app is listening on port ${port}`);
-//     });
-//   })
-//   .catch((error) => {
-//     console.error("Unable to connect to the database:", error);
-//   });
+export { app }

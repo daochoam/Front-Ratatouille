@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './Loading.module.css';
 
-function Loading(props) {
+function Loading({ gifUrl }) {
   return (
-    <div className={styles.Loading}>  </div>
+    <div className={styles.Loading}>
+      <div className={styles.LoadGIF}>
+        <img src={gifUrl} alt="Loading..." />
+      </div>
+    </div>
   )
 };
 

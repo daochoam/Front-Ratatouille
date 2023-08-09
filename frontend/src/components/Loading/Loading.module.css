@@ -1,1 +1,21 @@
-.Loading {}
+.Loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    /* Asegúrate de que esté por encima de otros elementos si es necesario */
+    background-color: #ffffff;
+    /* Fondo negro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.LoadGIF {
+    width: 35%;
+    height: 35%;
+    display: flex;
+    align-items: center;
+}

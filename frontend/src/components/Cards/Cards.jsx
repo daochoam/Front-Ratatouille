@@ -1,7 +1,6 @@
 import styles from './Cards.module.css';
 import Card from '../Card/Card.jsx';
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 
 function Cards({ Recipes }) {
   return (
@@ -13,7 +12,7 @@ function Cards({ Recipes }) {
       }}>
       <div className={styles.Cards}>
         {Recipes &&
-          Recipes.map((recipe, index) => {
+          Recipes?.map((recipe, index) => {
             return (
               <Card
                 key={index}

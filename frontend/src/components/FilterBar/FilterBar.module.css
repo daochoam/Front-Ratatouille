@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
-
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -51,83 +50,37 @@
     color: #ffffff;
 }
 
-.checkbox-container {
+.SearchBar {
     display: flex;
-    flex-wrap: wrap;
-}
-
-.checkbox {
-    display: flex;
+    flex-direction: row;
     align-items: center;
-    margin-right: 20px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: auto;
+    height: 100%;
+    align-content: center;
 }
 
-.checkbox input {
-    margin-right: 5px;
-}
-
-.custom-checkbox {
-    display: inline-block;
-    position: relative;
-    padding-left: 35px;
-    /* Espacio para el cuadrito */
-    margin-right: 10px;
-    /* Espacio entre los checkboxes */
-    cursor: pointer;
-    font-size: 16px;
-    user-select: none;
-}
-
-/* Estilo para el cuadrito del checkbox */
-.custom-checkbox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-/* Estilo para el marcado del checkbox */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 24px;
-    /* Altura del cuadrito */
-    width: 24px;
-    /* Ancho del cuadrito */
-    border-radius: 50%;
-    /* Redondear el cuadrito */
-    border: 2px solid #333;
-    /* Borde del cuadrito */
-}
-
-.CheckDiet {
+.searchInput {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 5px 5px 5px 5px;
+    transition: .5s ease-in-out all;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    border-bottom: 4px solid #f2f2f2;
 }
 
-.Checkbox {
-    flex: 0 0 calc(33.33% - 10px);
-    /* Cada checkbox ocupará un tercio del ancho con 10px de margen entre ellos */
-    margin: 5px;
-    display: inline-block;
-    position: relative;
-    padding-left: 5px;
-    /* Espacio para el cuadrito */
-    margin-right: 5px;
-    /* Espacio entre los checkboxes */
-    cursor: pointer;
-    font-size: 25px;
-    /* Espacio entre los checkboxes */
+.searchInput:focus {
+    border-bottom: 3px solid #f2f2f2;
+    transform: scale(1.03);
 }
 
-/* Estilo para el cuadrito del checkbox */
-.Checkbox input {
-    /* Estilos personalizados para el checkbox, si los deseas */
-}
-
-/* Estilo para el texto al lado del checkbox */
-.Checkbox label {
-    /* Estilos personalizados para el texto, si los deseas */
+select option:checked {
+    background-color: #b0e0e6;
+    /* Cambia el color de fondo como prefieras */
 }

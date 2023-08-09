@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './Detail.module.css';
 import { useParams } from 'react-router-dom';
+import { handlerNames } from '../../services';
 
 const detailInfo = {
   name: '',
@@ -26,38 +27,43 @@ function Detail(props) {
         {Object.entries(recipe)?.map(([key, value], index) => {
           if (key in detailInfo) {
             if (key === 'image') {
-              return (
-                <img className={styles.CardImage} src={recipe[key]} alt={recipe.name} key={index} title={recipe.name} />
-              )
+              <div className={styles.BackImageInfo}>
+                <div className={styles.BackImage}>
+                  <img className={styles.Image} src={recipe[key]} alt={recipe.name} key={index} title={recipe.name} />
+                </div>
+              </div>
+
             }
             else {
               return (
-                <h3 className={styles.CardKey} key={index} title={recipe[key]}>
+                <div className={styles.CardKey} key={index} title={recipe[key]}>
                   {key !== 'name' ? key in detailInfo ? detailInfo[key] : null : null}
-                  <p className={styles.CardValue}>
-                    {key === 'name' ? (<h2>{recipe.name}</h2>) : key === 'diets' ? (recipe[key].join(', ')) :
-                      (recipe[key])}
-                  </p>
-                </h3>
+                  <div className={styles.CardValue}>
+                    {key === 'name' ? (<h2>{recipe.name}</h2>) :
+                      key === 'diets' ? handlerNames(recipe[key].join(', ')) :
+                        key === 'summaryOfDish' ? <div dangerouslySetInnerHTML={{ __html: recipe[key] }} /> :
+                          recipe[key]}
+                  </div>
+                </div>
               );
             }
           }
           return null; // Opción para el caso en que la clave no esté presente en detailInfo
         })}
       </div>
-      <div className={styles.DetailSteps}>
+      {Object.keys(recipe.stepByStep).length && <div className={styles.DetailSteps}>
         <h3 className={styles.CardKey} title={'Steps'}> Steps:{' '}
         </h3>
-        <ol>
+        <ul className={styles.UnorderedList}>
           {Object.entries(recipe.stepByStep).map(([key, value]) => {
             return (
               <li key={key}>
-                <strong>Step {key}:</strong> {value}
+                <strong>Step {key}:</strong> <span className={styles.TextStep}> {value}</span>
               </li>
             );
           })}
-        </ol>
-      </div>
+        </ul>
+      </div>}
     </div>
   );
 }

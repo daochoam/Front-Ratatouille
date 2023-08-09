@@ -16,13 +16,17 @@ export {
 } from './diets'
 
 export {
-    filterByScore,
+    filterByField,
     filterByDiets,
+    filterByName,
     filterByOrder,
+    filterByOrigin,
     FILTER_BY_DIETS,
+    FILTER_BY_FIELD,
+    FILTER_BY_NAME,
     FILTER_BY_ORDER,
-    FILTER_BY_SCORE
-} from './order'
+    FILTER_BY_ORIGIN
+} from './filters'
 
 export {
     addFavorite,
